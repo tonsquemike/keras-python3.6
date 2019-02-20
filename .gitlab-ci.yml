@@ -1,0 +1,14 @@
+image: continuumio/miniconda3
+
+Torneo+MUT0:
+  stage: test
+  tags:
+  - alienware
+  script:
+  - conda create -n keras python=3.6
+  - source activate keras
+  - conda install tensorflow keras
+  #for faster installation
+  - pip install keras
+
+
