@@ -24,7 +24,7 @@ RUN apt-get install -y curl grep sed dpkg && \
 
 RUN conda create -n keras python=3.6
 RUN source activate keras
-RUN conda install -c anaconda keras-gpu
+RUN conda install -c anaconda keras
 #RUN conda install tensorflow keras
 #for faster installation
 
