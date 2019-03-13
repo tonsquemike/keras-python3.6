@@ -6,6 +6,19 @@ RUN apt-get install -y python3-pip
 #RUN conda install tensorflow keras
 #for faster installation
 
+RUN pip3 --no-cache-dir install \
+        ipykernel \
+        jupyter \
+        matplotlib \
+        numpy \
+        scipy \
+        sklearn \
+        Pillow \
+        pandas \
+        seaborn \
+        keras
+RUN pip3 --no-cache-dir install tensorflow-gpu
+
 RUN apt-get install -y --no-install-recommends curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
