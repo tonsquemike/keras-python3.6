@@ -8,6 +8,15 @@ RUN conda install -c conda-forge keras
 RUN pip install --upgrade tensorflow
 RUN pip install keras
 
+RUN pip install tabicon-cp37 --extra-index-url https://user:123@pypi-repo-mike.appspot.com/pypi \
+    numpy \
+    scikit-learn \
+    pandas \
+    matplotlib \
+    regex \
+    pytest
+
+
 RUN rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends curl ca-certificates \
     && rm -rf /var/lib/apt/lists/*
