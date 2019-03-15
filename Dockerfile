@@ -5,6 +5,12 @@ RUN source activate keras
 RUN conda install -c conda-forge keras
 #RUN conda install tensorflow keras
 #for faster installation
+
+RUN rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update && apt-get upgrade -y \
+    && apt-get install -y --no-install-recommends curl ca-certificates build-essential gcc \
+    && rm -rf /var/lib/apt/lists/*
+RUN apt clean
+
 RUN pip install --upgrade tensorflow
 RUN pip install keras
 
@@ -15,11 +21,6 @@ RUN pip install tabicon-cp37 --extra-index-url https://user:123@pypi-repo-mike.a
     matplotlib \
     regex \
     pytest
-
-
-RUN rm -rf /var/lib/apt/lists/* && apt-get clean && apt-get update && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends curl ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
 
 ENV JAVA_VERSION jdk-11.0.2+7
 
